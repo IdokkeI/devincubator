@@ -1,0 +1,14 @@
+input{
+  width: min-content;
+}
+
+.container-fluid {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.canv{
+  justify-self: center;
+  width: 70%;
+}

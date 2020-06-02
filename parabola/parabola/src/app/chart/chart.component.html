@@ -1,0 +1,64 @@
+
+  <div class="raws">
+    <div class="col-lg-2*4">
+      <div class="container-fluid">
+        <form [formGroup]='chartForm'>
+          <div *ngIf="a.errors?.required && !a.untouched" class="alert alert-danger">
+            This filed 'a' is required
+          </div>
+          <div *ngIf="b.errors?.required && !b.untouched" class="alert alert-danger">
+            This filed 'b' is required
+          </div>
+          <div *ngIf="c.errors?.required && !c.untouched" class="alert alert-danger">
+            This filed 'c' is required
+          </div>
+          <div *ngIf="step.errors?.required && !step.untouched" class="alert alert-danger">
+            This filed 'step' is required
+          </div>
+          <div *ngIf="rangefrom.errors?.required && !rangefrom.untouched" class="alert alert-danger">
+            This filed 'range from' is required
+          </div>
+          <div *ngIf="rangeto.errors?.required && !rangeto.untouched" class="alert alert-danger">
+            This filed 'range to' is required
+          </div>
+            <div>
+                <label><b>Function:</b></label>
+                    <br/>
+                      <label>
+                        <b>
+                            y = <input type="number"  formControlName='a'>x^2 +
+                            <input type="number" formControlName='b'>x +
+                            <input type="number" formControlName='c'>
+                        </b>
+                      </label>
+
+            </div>
+                <div><label><b>Step: </b><input type="number" formControlName='step'></label></div>
+            <div>
+                <b>
+                    <label>from: <input type="number" formControlName='rangefrom'> </label>
+                    <label  style="margin-left: 5px;"> to: <input type="number" formControlName='rangeto'> </label>
+                </b>
+            </div>
+            <button class='btn btn-success' type="submit" *ngIf='chartForm.valid' (click)='send()'>Plot</button>
+        </form>
+    </div>
+    <div class="raws">
+      <div class="col-lg-2*4">
+        <div class="container-fluid">
+          <div class="canv">
+            <canvas
+                baseChart
+                [chartType]="'line'"
+                [datasets]="chartData"
+                [labels]="chartLabels"
+                [options]="chartOptions"
+                [legend]="true"
+                >
+            </canvas>
+        </div>
+      </div>
+    </div>
+
+
+
